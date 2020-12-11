@@ -14,9 +14,12 @@ $color-mediumOrange:#FBA658;
     margin-top:230px; 
     .containerTicket{
         display: flex;
-        flex-flow: column wrap;
+        flex-direction: column;
+        flex-wrap: wrap;
         align-items: center;
         width:375px;
+        overflow-x: scroll;
+        scroll-behavior: smooth;
     }      
 }
 %buttonsStyle{
