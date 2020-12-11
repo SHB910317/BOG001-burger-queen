@@ -24,12 +24,12 @@
 
         <div id="containerChild">
             <div id="orderItem"><app-create-order-item [typeItem]="type" (stateModalBurguer)="receiveveStateModalBurguer($event)" (itemOrder)="receiveItemOrder($event)"></app-create-order-item></div>
-            <div id="orderSummary"><app-order-summary-component [item]="receivedOrder"></app-order-summary-component></div>
+            <div id="orderSummary"><app-order-summary-component [item]="receivedOrder" [infoModal]="infoModal"></app-order-summary-component></div>
         </div>
        
     </div>
 
 </main>
 
-    <app-order-item-options-modal *ngIf= "showModal " (close)="receiveCloseModal($event)"></app-order-item-options-modal>
+    <app-order-item-options-modal *ngIf= "showModal " (close)="receiveCloseModal($event)" (sendModalInfo)="receiveInfoModal($event)"></app-order-item-options-modal>
 

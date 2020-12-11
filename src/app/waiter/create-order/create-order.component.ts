@@ -17,6 +17,7 @@ export class CreateOrderComponent implements OnInit {
   modalBurguer:boolean;
   showModal: boolean = false;
   receivedOrder:ItemPedido;
+  infoModal:any;
  
  // data:Menu;
 
@@ -46,6 +47,11 @@ export class CreateOrderComponent implements OnInit {
 
   receiveCloseModal(value){
     this.showModal = false;
+  }
+
+  receiveInfoModal(value:any){
+    this.infoModal = value;
+    console.log(value)
   }
   
 }
