@@ -41,7 +41,7 @@ export class CreateOrderComponent implements OnInit {
   }
   receiveItemOrder(pedido:MenuItem){
     this.receivedOrder = pedido;
-    console.log(this.receivedOrder)
+    console.log('this.receivedOrder', this.receivedOrder)
 
   }
 

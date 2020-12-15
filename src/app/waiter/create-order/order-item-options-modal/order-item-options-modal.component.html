@@ -1,17 +1,18 @@
 <div class="containerModal">
     <div class="modal">
         <div class="containerHeader">
-            <!-- <div class="containerBurguer">  -->
+            
                 <img src="../../../../assets/images/doubleBurguer.png" alt="" class="burguer">
-            <!-- </div> -->
-            <!-- <div class="modalbox resize"> -->
+            
                 <button type="button" (click) = "closeModal ('close')" id="close"> </button>
-            <!-- </div> -->
+           
         </div>
         <div class="containerTitles">
             <img src="../../../../assets/images/types.png" alt="">
             <img src="../../../../assets/images/additions.png" alt="">
         </div>
+
+        <!-- {{order | json}} -->
         <form [formGroup] ="modalForm">
         <div *ngFor = "let product of data?.menu" class="containerTarget">
             <div class="containerOptions">

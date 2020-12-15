@@ -19,9 +19,8 @@ export class OrderItemOptionsModalComponent implements OnInit {
   addition:AddItem;
   @Input()order: MenuItem;
   
-
-@Output() close = new EventEmitter<string>();
-@Output() sendModalInfo = new EventEmitter<NewMenuItem>();
+  @Output() close = new EventEmitter<string>();
+  @Output() sendModalInfo = new EventEmitter<NewMenuItem>();
 
   constructor(
     private dataService: DataService,
@@ -71,5 +70,5 @@ export class OrderItemOptionsModalComponent implements OnInit {
     console.log(value)
   }
   
- 
+  
 }

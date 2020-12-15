@@ -12,6 +12,7 @@ export class CreateOrderItemComponent implements OnInit {
   data:Menu;
   modalBurguer: boolean;
   pedido:MenuItem;
+  idBurguer:string;
   @Input()typeItem: string; // el input es para pasar datos del papa al hijo. Estamos llamando Type
   @Output() stateModalBurguer = new EventEmitter<boolean>();
   @Output() itemOrder = new EventEmitter<MenuItem>();
@@ -33,14 +34,16 @@ export class CreateOrderItemComponent implements OnInit {
     });
   }
 
-  onSubmit(value:boolean, data:MenuItem):void {
+  onSubmit(value:boolean, data:MenuItem, id:string):void {
     // Process checkout data here
     this.modalBurguer = value;
     console.log(this.modalBurguer);
     this.stateModalBurguer.emit(this.modalBurguer)
     this.pedido = data;
     this.itemOrder.emit(this.pedido);
-    console.log(this.pedido) 
+    this.idBurguer = id; 
+    console.log(this.pedido)
+    console.log(this.idBurguer)
 
   }
 
