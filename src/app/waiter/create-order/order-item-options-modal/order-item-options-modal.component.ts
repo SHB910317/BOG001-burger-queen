@@ -1,7 +1,8 @@
-import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, inject, Output, EventEmitter, Input } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-import { Menu } from 'src/app/interfaces/menu';
+import { AddItem, Menu, MenuItem, NewMenuItem } from 'src/app/interfaces/menu';
 import { FormBuilder,FormGroup} from '@angular/forms';
+
 //import { createSocket } from 'dgram';
 
 @Component({
@@ -12,17 +13,20 @@ import { FormBuilder,FormGroup} from '@angular/forms';
 export class OrderItemOptionsModalComponent implements OnInit {
 
   data:Menu;
-  modalSelections:any = {};
   modalForm:FormGroup;
+  newOrderBurguer:NewMenuItem;
+  infoModalTypeBurguer:any;
+  addition:AddItem;
+  @Input()order: MenuItem;
   
 
 @Output() close = new EventEmitter<string>();
-@Output() sendModalInfo = new EventEmitter<any>();
+@Output() sendModalInfo = new EventEmitter<NewMenuItem>();
 
   constructor(
     private dataService: DataService,
     private formBuilder: FormBuilder
-  ) {
+  ) {   
     this.createForm();
   }
 
@@ -43,11 +47,23 @@ export class OrderItemOptionsModalComponent implements OnInit {
     })
   }
   onSubmit(){
-    let infoModalTypeBurguer = this.modalForm.value
-    this.sendModalInfo.emit(infoModalTypeBurguer);
-  
-
-    console.log(infoModalTypeBurguer)
+    this.infoModalTypeBurguer = this.modalForm.value
+   
+    this.newOrderBurguer = {
+      id: this.order.id,
+      image: this.order.image,
+      name: this.order.name,
+      price: this.order.price,
+      option: this.infoModalTypeBurguer.optionTypeBurguer,
+      Additions: {
+        egg:this.infoModalTypeBurguer.egg,
+        cheese:this.infoModalTypeBurguer.cheese,
+        price: 1,
+      }   
+    }
+    console.log('infoModalTypeBurguer',this.infoModalTypeBurguer)
+    console.log('newOrderBurguer',this.newOrderBurguer)
+    this.sendModalInfo.emit(this.newOrderBurguer);
   }
 
   closeModal(value:string){
@@ -56,5 +72,4 @@ export class OrderItemOptionsModalComponent implements OnInit {
   }
   
  
-  
 }

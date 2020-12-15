@@ -40,7 +40,7 @@ export class CreateOrderItemComponent implements OnInit {
     this.stateModalBurguer.emit(this.modalBurguer)
     this.pedido = data;
     this.itemOrder.emit(this.pedido);
-    console.log(this.pedido)
+    console.log(this.pedido) 
 
   }
 

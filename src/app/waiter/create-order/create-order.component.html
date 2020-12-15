@@ -31,5 +31,7 @@
 
 </main>
 
-    <app-order-item-options-modal *ngIf= "showModal " (close)="receiveCloseModal($event)" (sendModalInfo)="receiveInfoModal($event)"></app-order-item-options-modal>
+  receivedOrder:MenuItem;
+  receivedOrder:MenuItem;
+    <app-order-item-options-modal *ngIf= "showModal " (close)="receiveCloseModal($event)" (sendModalInfo)="receiveInfoModal($event)" [order]= "receivedOrder" ></app-order-item-options-modal>
 

@@ -4,15 +4,37 @@ export interface MenuItem {
     name: string;
     price: number;
     image: string;
+    Additions:Additions
 };
 export interface Menu{
     menu: MenuItem[];
 }
-export interface ItemPedido{
-    name: string;
-    price: number;
-    image: string;
+export interface NewMenuItem{
+    id: any,
+    image: string,
+    name: string,
+    price: number,
+    option: string,
+    Additions:{
+        egg: boolean,
+        cheese: boolean,
+        price:number
+    }
+   
 }
-export interface SummaryPedido{
-    menu: ItemPedido[];
+export interface Additions{
+    additions:AddItem[];
+} 
+export interface AddItem{
+    add: string,
+    price: number
+    image: string
 }
+/* interface Option{
+    options: OptionItem[]
+}
+interface OptionItem{
+    option: string,
+    image: string
+}
+ */

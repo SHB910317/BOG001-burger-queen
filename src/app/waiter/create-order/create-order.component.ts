@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 //import { DataService } from '../../data.service';
 import { ActivatedRoute} from '@angular/router';
-import { ItemPedido } from 'src/app/interfaces/menu';
+import { MenuItem } from 'src/app/interfaces/menu';
 //import { Menu } from 'src/app/interfaces/menu';
 
 @Component({
@@ -16,7 +16,7 @@ export class CreateOrderComponent implements OnInit {
   type: string;
   modalBurguer:boolean;
   showModal: boolean = false;
-  receivedOrder:ItemPedido;
+  receivedOrder:MenuItem;
   infoModal:any;
  
  // data:Menu;
@@ -36,16 +36,16 @@ export class CreateOrderComponent implements OnInit {
     this.type = this.route.snapshot.paramMap.get('type');
   }
 
-  receiveveStateModalBurguer(stateModalBurguer){
+  receiveveStateModalBurguer(stateModalBurguer:boolean){
    this.showModal = stateModalBurguer;
   }
-  receiveItemOrder(pedido:ItemPedido){
+  receiveItemOrder(pedido:MenuItem){
     this.receivedOrder = pedido;
     console.log(this.receivedOrder)
 
   }
 
-  receiveCloseModal(value){
+  receiveCloseModal(value:string){
     this.showModal = false;
   }
 

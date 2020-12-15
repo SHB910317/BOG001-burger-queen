@@ -18,16 +18,20 @@ export class OrderSummaryComponentComponent implements OnInit {
    }
    ngOnChanges(changes: SimpleChanges){
     console.log(changes)
-    if(changes.item && changes.item.currentValue != undefined){
+    console.log( changes.infoModal)
+    if(changes.item && changes.item.currentValue != undefined && changes.item.currentValue.Modal != true){
       this.orderSummary.push(changes.item.currentValue)
-    }
-    console.log(this.orderSummary);
-    /*if(changes.infoModal && changes.infoModal.currentValue != undefined){
-      console.log(this.infoModal)
+    }if (changes.infoModal && changes.infoModal.currentValue != undefined && changes.infoModal.currentValue.Modal === true){
+      console.log( changes.infoModal)
+      this.orderSummary.push(changes.infoModal.currentValue)
+      console.log(this.orderSummary)
+     } 
+    /*
     }*/
    
 
    }
+
 
   ngOnInit(): void { 
    
