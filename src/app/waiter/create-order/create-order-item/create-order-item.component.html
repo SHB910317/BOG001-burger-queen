@@ -7,7 +7,7 @@
         <span>{{product.name}}</span>
         <p>$ {{product.price}}</p>
         <span *ngIf = "product.Modal">
-          <button (click) = "onSubmit(product.Modal, product)">Options</button> 
+          <button (click) = "onSubmit(product.Modal, product, product.id)">Options</button> 
         </span>
         <span *ngIf = "product.Modal != true">
           <button (click)= "getItem(product)" >Add</button> 
