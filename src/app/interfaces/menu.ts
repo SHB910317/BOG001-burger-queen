@@ -7,12 +7,18 @@ export interface MenuItem {
 };
 export interface Menu{
     menu: MenuItem[];
-}
-export interface ItemPedido{
-    name: string;
-    price: number;
-    image: string;
-}
-export interface SummaryPedido{
-    menu: ItemPedido[];
+};
+
+export interface NewBurguer{
+    id: string,
+    image:string,
+    name: string,
+    price: number,
+    Modal: boolean,
+	option: string,
+    Additions:
+        {
+            add: string,
+            price: number,
+        },
 }

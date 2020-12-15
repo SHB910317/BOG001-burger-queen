@@ -1,8 +1,8 @@
-import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, inject, Output, EventEmitter, Input } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-import { Menu } from 'src/app/interfaces/menu';
+import { Menu, NewBurguer } from 'src/app/interfaces/menu';
 import { FormBuilder,FormGroup} from '@angular/forms';
-//import { createSocket } from 'dgram';
+
 
 @Component({
   selector: 'app-order-item-options-modal',
@@ -11,9 +11,12 @@ import { FormBuilder,FormGroup} from '@angular/forms';
 })
 export class OrderItemOptionsModalComponent implements OnInit {
 
+  @Input() order;
+
   data:Menu;
   modalSelections:any = {};
   modalForm:FormGroup;
+  newProduct:NewBurguer;
   
 
 @Output() close = new EventEmitter<string>();
@@ -43,10 +46,8 @@ export class OrderItemOptionsModalComponent implements OnInit {
     })
   }
   onSubmit(){
-    let infoModalTypeBurguer = this.modalForm.value
-    this.sendModalInfo.emit(infoModalTypeBurguer);
-  
-
+    let infoModalTypeBurguer = this.modalForm.value;
+    // this.newProduct = {}
     console.log(infoModalTypeBurguer)
   }
 
@@ -55,6 +56,5 @@ export class OrderItemOptionsModalComponent implements OnInit {
     console.log(value)
   }
   
- 
   
 }

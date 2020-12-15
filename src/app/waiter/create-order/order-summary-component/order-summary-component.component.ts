@@ -20,6 +20,7 @@ export class OrderSummaryComponentComponent implements OnInit {
     console.log(changes)
     if(changes.item && changes.item.currentValue != undefined){
       this.orderSummary.push(changes.item.currentValue)
+      
     }
     console.log(this.orderSummary);
     /*if(changes.infoModal && changes.infoModal.currentValue != undefined){

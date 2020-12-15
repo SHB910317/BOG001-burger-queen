@@ -11,12 +11,15 @@ $color-mediumOrange:#FBA658;
     height:565px;
     border: $color-black solid 3px;
     border-radius:25px;
-    margin-top:230px; 
+    margin-top:230px;
+    overflow-y: scroll;
     .containerTicket{
         display: flex;
         flex-flow: column wrap;
         align-items: center;
         width:375px;
+        //height: 465px;
+        //overflow: scroll;
     }      
 }
 %buttonsStyle{
@@ -76,10 +79,14 @@ $color-mediumOrange:#FBA658;
 #footSummary{
     display: flex;
     position: fixed;
-    // justify-content: space-around;// space beteewn encia los elementos a una esquina a cada uno . Y el space around pone un espacio entre los hijos
-    width: 340px ;
+    align-items: center;
+    justify-content: space-around;// space beteewn encia los elementos a una esquina a cada uno . Y el space around pone un espacio entre los hijos
+    width: 375px ;
     height:70px;
-    margin-top: 480px;
+    margin-top: 491px;
+    background-color: $color-mediumOrange;
+    border-radius: 0px 0px 22px 22px;
+    border-top: 3px solid;
     //align-items: baseline;
     button{
         width:140px;
