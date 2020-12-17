@@ -3,24 +3,33 @@
         <div *ngFor = "let itemOrder of orderSummary" class="ticket">
             <img src="{{itemOrder.image}}" alt="">
             <div class="containerInfoTicket">
-                <div class="containertext">
-                    <p>{{itemOrder.name}}</p>
-                    <p>$ {{itemOrder.price}}</p>
-                </div>
-                <div class="containerButtons">
-                    <button type="button" id="deleteButton"></button>
-                    <button type="button" id="editButton"></button>
-                </div>
+                
+                    <div class="containertext">
+                        <div>
+                            <p>{{itemOrder.name}}</p>
+                            <p>{{itemOrder.option}}</p>
+                            <p *ngIf= "itemOrder.Additions?.egg=== true">egg addition</p>
+                            <p *ngIf= "itemOrder.Additions?.cheese=== true">cheese addition</p>
+                        </div>
+                        <div>
+                            <p>Cantidad:{{itemOrder.quantity}} </p>
+                        </div>
+                        <div>
+                            <p>$ {{productPrice}}</p>
+                        </div>
+                        
+                        
 
+                    </div> 
+                    <div class="containerButtons">
+                        <button type="button" id="deleteButton"></button>
+                        <button type="button" id="editButton"></button>
+                    </div>   
             </div>
-            
-        </div>
-
+        </div>         
     </div>
 
-       
-
-      <div id="footSummary">
+    <div id="footSummary">
         <button>Send</button> 
         <span>
         Total $ <p>20000</p>

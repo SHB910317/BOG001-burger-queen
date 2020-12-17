@@ -1,8 +1,9 @@
 import { Component, OnInit, inject, Output, EventEmitter, Input } from '@angular/core';
 import { DataService } from 'src/app/data.service';
-import { Menu, NewBurguer } from 'src/app/interfaces/menu';
+import { AddItem, Menu, MenuItem, NewMenuItem } from 'src/app/interfaces/menu';
 import { FormBuilder,FormGroup} from '@angular/forms';
 
+//import { createSocket } from 'dgram';
 
 @Component({
   selector: 'app-order-item-options-modal',
@@ -11,21 +12,20 @@ import { FormBuilder,FormGroup} from '@angular/forms';
 })
 export class OrderItemOptionsModalComponent implements OnInit {
 
-  @Input() order;
-
   data:Menu;
-  modalSelections:any = {};
   modalForm:FormGroup;
-  newProduct:NewBurguer;
+  newOrderBurguer:NewMenuItem;
+  infoModalTypeBurguer:any;
+  addition:AddItem;
+  @Input()order: MenuItem;
   
-
-@Output() close = new EventEmitter<string>();
-@Output() sendModalInfo = new EventEmitter<any>();
+  @Output() close = new EventEmitter<string>();
+  @Output() sendModalInfo = new EventEmitter<NewMenuItem>();
 
   constructor(
     private dataService: DataService,
     private formBuilder: FormBuilder
-  ) {
+  ) {   
     this.createForm();
   }
 
@@ -45,10 +45,33 @@ export class OrderItemOptionsModalComponent implements OnInit {
       cheese:false
     })
   }
-  onSubmit(){
-    let infoModalTypeBurguer = this.modalForm.value;
-    // this.newProduct = {}
-    console.log(infoModalTypeBurguer)
+  onSubmit(value:string){
+    this.infoModalTypeBurguer = this.modalForm.value
+    console.log(this.infoModalTypeBurguer)
+    let priceAddition:number=0
+    if(this.infoModalTypeBurguer.egg=== true){
+      priceAddition++
+    }
+    if(this.infoModalTypeBurguer.cheese=== true){
+      priceAddition++
+    }
+   
+    this.newOrderBurguer = {
+      id: this.order.id,
+      image: this.order.image,
+      name: this.order.name,
+      price: this.order.price,
+      option: this.infoModalTypeBurguer.optionTypeBurguer,
+      Additions: {
+        egg:this.infoModalTypeBurguer.egg,
+        cheese:this.infoModalTypeBurguer.cheese,
+        price:priceAddition
+      }   
+    }
+    console.log('infoModalTypeBurguer',this.infoModalTypeBurguer)
+    console.log('newOrderBurguer',this.newOrderBurguer)
+    this.sendModalInfo.emit(this.newOrderBurguer);
+    this.closeModal(value);
   }
 
   closeModal(value:string){

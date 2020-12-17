@@ -36,7 +36,7 @@ export class CreateOrderComponent implements OnInit {
     this.type = this.route.snapshot.paramMap.get('type');
   }
 
-  receiveveStateModalBurguer(stateModalBurguer){
+  receiveveStateModalBurguer(stateModalBurguer:boolean){
    this.showModal = stateModalBurguer;
   }
   receiveItemOrder(pedido:MenuItem){
@@ -45,7 +45,7 @@ export class CreateOrderComponent implements OnInit {
 
   }
 
-  receiveCloseModal(value){
+  receiveCloseModal(value:string){
     this.showModal = false;
   }
 
