@@ -10,7 +10,7 @@ import { Menu, MenuItem } from 'src/app/interfaces/menu';
 export class OrderSummaryComponentComponent implements OnInit {
   
   @Input() item: MenuItem;
-  orderSummary:MenuItem[]=[];
+  orderSummary:MenuItem[]=[];// El orderSummary es de tipo MenuItem que es una interfaz donde hay un objetos con varias propiedades
  // orderSummary:any=[];
   @Input()infoModal:any; 
   productPrice:number;
