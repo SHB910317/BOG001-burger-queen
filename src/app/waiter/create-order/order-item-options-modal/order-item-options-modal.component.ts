@@ -45,8 +45,16 @@ export class OrderItemOptionsModalComponent implements OnInit {
       cheese:false
     })
   }
-  onSubmit(){
+  onSubmit(value:string){
     this.infoModalTypeBurguer = this.modalForm.value
+    console.log(this.infoModalTypeBurguer)
+    let priceAddition:number=0
+    if(this.infoModalTypeBurguer.egg=== true){
+      priceAddition++
+    }
+    if(this.infoModalTypeBurguer.cheese=== true){
+      priceAddition++
+    }
    
     this.newOrderBurguer = {
       id: this.order.id,
@@ -57,12 +65,13 @@ export class OrderItemOptionsModalComponent implements OnInit {
       Additions: {
         egg:this.infoModalTypeBurguer.egg,
         cheese:this.infoModalTypeBurguer.cheese,
-        price: 1,
+        price:priceAddition
       }   
     }
     console.log('infoModalTypeBurguer',this.infoModalTypeBurguer)
     console.log('newOrderBurguer',this.newOrderBurguer)
     this.sendModalInfo.emit(this.newOrderBurguer);
+    this.closeModal(value);
   }
 
   closeModal(value:string){

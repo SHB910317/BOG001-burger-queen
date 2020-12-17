@@ -4,7 +4,8 @@ export interface MenuItem {
     name: string;
     price: number;
     image: string;
-    Additions:Additions
+    quantity:number;
+    Additions:AddItem[];
 };
 export interface Menu{
     menu: MenuItem[];
@@ -22,9 +23,7 @@ export interface NewMenuItem{
     }
    
 }
-export interface Additions{
-    additions:AddItem[];
-} 
+
 export interface AddItem{
     add: string,
     price: number

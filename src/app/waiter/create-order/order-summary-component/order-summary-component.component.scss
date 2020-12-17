@@ -13,14 +13,14 @@ $color-mediumOrange:#FBA658;
     border-radius:25px;
     margin-top:230px;
     overflow-y: scroll;
+    padding-bottom: 80px;
+    box-sizing: border-box;
     .containerTicket{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
         width:375px;
-        //height: 465px;
-        //overflow: scroll;
     }      
 }
 %buttonsStyle{
@@ -34,7 +34,7 @@ $color-mediumOrange:#FBA658;
     display: flex;
     align-items: center;
     width: 345px ;
-    height: 80px;
+    height: 96px;
     background-color: $color-mediumOrange;
     border-radius:18px ;
     margin-top:10px;
@@ -49,21 +49,21 @@ $color-mediumOrange:#FBA658;
         flex-direction: column;
         .containertext{
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             margin-left: 10px;
             width: 250px;
+            height: 92px;
             p{
                 font-size: 20px;
             }     
         }
         .containerButtons{
             display: flex;
-            flex-direction: row;
             justify-content: flex-end;
-            margin-left: 10px;
-            width: 250px;
+            margin-left: 112px;
+            width: 150px;
             height: 35px;
+            margin-top: -38px;
             #deleteButton{
                 @extend%buttonsStyle;   
                 background-image: url(../../../../assets/images/deleteIcon.png);
@@ -87,8 +87,8 @@ $color-mediumOrange:#FBA658;
     margin-top: 491px;
     background-color: $color-mediumOrange;
     border-radius: 0px 0px 22px 22px;
-    border-top: 3px solid;
-    //align-items: baseline;
+    border: 3px solid;
+    box-sizing: border-box;
     button{
         width:140px;
         height:45px;
